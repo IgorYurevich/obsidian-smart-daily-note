@@ -7,7 +7,6 @@ import {
 	TFile,
 } from 'obsidian';
 
-// Описываем, какие настройки будут у плагина
 interface PluginSettings {
 	rootFolder: string;
 
