@@ -2,7 +2,7 @@
 	"id": "smart-daily-note",
 	"name": "Smart daily note",
 	"version": "0.0.1",
-	"minAppVersion": "1.0.0",
+	"minAppVersion": "1.5.7",
 	"description": "Create daily note in specific folder by year and month pattern, add emoji to make it more explicit and personalized",
 	"author": "kairoton",
 	"authorUrl": "https://github.com/IgorYurevich",

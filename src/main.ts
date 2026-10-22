@@ -34,7 +34,7 @@ class SmartDailyNotePluginSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty(); // Очищаем контейнер при открытии
 
-		containerEl.createEl('h2', { text: 'Settings' });
+		new Setting(containerEl).setName('Daily notes').setHeading();
 
 		new Setting(containerEl)
 			.setName('Root folder')
@@ -88,7 +88,7 @@ export default class SmartDailyNote extends Plugin {
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
-			await this.loadData(),
+			(await this.loadData()) as Partial<PluginSettings>,
 		);
 	}
 
@@ -203,7 +203,6 @@ export default class SmartDailyNote extends Plugin {
 
 		let yearFolder = this.app.vault.getFolderByPath(yearFolderName);
 		if (!yearFolder) {
-			console.log('Year folder does not exist, creating it');
 			await this.app.vault.createFolder(yearFolderName);
 		}
 
@@ -222,7 +221,6 @@ export default class SmartDailyNote extends Plugin {
 			yearQuarterFolderName,
 		);
 		if (!yearQuarterFolder) {
-			console.log('Quarter folder does not exist, creating it');
 			await this.app.vault.createFolder(yearQuarterFolderName);
 		}
 
@@ -238,7 +236,6 @@ export default class SmartDailyNote extends Plugin {
 
 		let monthFolder = this.app.vault.getFolderByPath(yearMonthFolderName);
 		if (!monthFolder) {
-			console.log('Month folder does not exist, creating it');
 			await this.app.vault.createFolder(yearMonthFolderName);
 		}
 
